@@ -6,7 +6,7 @@ background:#f4f4f4;
 }
 
 header{
-background:#111;
+background:hsl(192, 91%, 31%);
 color:white;
 padding:20px;
 text-align:center;
@@ -20,7 +20,7 @@ font-weight:bold;
 }
 
 .hero{
-background:linear-gradient(45deg,#0f2027,#203a43,#2c5364);
+background:linear-gradient(45deg,#119cd8,#203a43,#2c5364);
 color:white;
 text-align:center;
 padding:100px 20px;
@@ -65,12 +65,12 @@ color:white;
 
 /* Reset + Body */
 body{margin:0;font-family:Arial,sans-serif;background:#f4f4f4;scroll-behavior:smooth;}
-header{background:#111;color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:999;}
+header{background:hsl(202, 88%, 51%);color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:999;}
 nav a{color:white;margin:15px;text-decoration:none;font-weight:bold;transition:0.3s;}
 nav a:hover{color:#00c3ff;}
 
 /* Hero Section */
-.hero{background:linear-gradient(45deg,#0f2027,#203a43,#2c5364);color:white;text-align:center;padding:100px 20px;}
+.hero{background:linear-gradient(45deg,#3db8bd,#203a43,#2c5364);color:white;text-align:center;padding:100px 20px;}
 .hero button{padding:15px 25px;background:#00c3ff;border:none;font-size:18px;cursor:pointer;transition:0.3s;}
 .hero button:hover{background:#0077a3;}
 
