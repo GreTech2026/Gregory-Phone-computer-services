@@ -46,4 +46,50 @@ window.onload = function(){
 document.getElementById("loader").style.display="none";
 }
 
+function trackRepair(){
+
+let id = document.getElementById("repairID").value;
+let status = document.getElementById("status");
+
+if(id == "1234"){
+status.innerHTML = "Your phone repair is ready for collection.";
+}
+
+else if(id == "5678"){
+status.innerHTML = "Your laptop is being repaired.";
+}
+
+else{
+status.innerHTML = "Repair ID not found.";
+}
+
+}
+
+function openPayment(){
+document.getElementById("paymentPopup").style.display="flex";
+}
+
+function closePayment(){
+document.getElementById("paymentPopup").style.display="none";
+}
+
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+let message = document.getElementById("loginMessage");
+
+if(user === "customer" && pass === "1234"){
+
+message.innerHTML = "Login successful. Welcome!";
+window.location.href = "dashboard.html";
+
+}
+
+else{
+
+message.innerHTML = "Incorrect username or password.";
+
+}
+
+
 

@@ -15,14 +15,27 @@
 
 </head>
 
-<div id="loader">ROADING....WELCOME TO THE GPCS WEBSITE</div>
+<div id="loader">LOADING....WELCOME TO THE GPCS WEBSITE</div>
 
 <body>
+
+
+     <!--pay section -->
+<div class="pay-box">
+
+<h3>PAY FOR REPAIR</h3>
+
+<p>Secure payment</p>
+
+<a href="https://www.paypal.com/paypalme/Gregory McDonald" target="_blank">
+<button>PAY NOW</button>
+</a>
+
+</div>  
  
-
 <header>
-<button onclick="toggleMode()">🌙</button>
 
+ 
 
 <h1>GREGORY PHONE 📱 AND COMPUTER 💻 SERVICES 🛠</h1>
 <nav>
@@ -32,6 +45,10 @@
 <a href="#contact">Contact</a>
 </nav>
 </header>
+
+
+
+</div>
 
 <!-- Hero Section -->
 <section id="home" class="hero">
@@ -44,6 +61,17 @@
 <img class="slide" src="images/repair1.jpg">
 <img class="slide" src="images/repair2.jpg">
 <img class="slide" src="images/repair3.jpg">
+
+</div>
+
+
+<div class="main-layout">
+
+<div class="content">
+
+<!-- Your normal website content -->
+<h2>WELCOME TO GREGORY PHONE & COMPUTER SERVICES</h2>
+<p>Dont Replace it- Repair it, Skill,Trust,Honesty and Visbility build Trust.</p>
 
 </div>
 
@@ -67,6 +95,20 @@
 <h3>🔧 Technical Support</h3>
 <p>Phone setup, software installation and upgrades.</p>
 </div>
+</section>
+
+<section class="login-section">
+
+<h2>Customer Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="loginMessage"></p>
+
 </section>
 
 <!-- Image Gallery -->
@@ -105,6 +147,21 @@
 <p>Best computer technician in Mulbarton.</p>
 <strong>- Joseph Mbuna</strong>
 </div>
+
+</section>
+
+
+<div section class="tracking">
+
+<h2>Track Your Repair</h2>
+
+<input type="text" id="repairID" placeholder="Enter Repair ID">
+
+<button onclick="trackRepair()">Check Status</button>
+
+<p id="status"></p>
+</div>
+
 
 </section>
 
@@ -151,6 +208,8 @@ loading="lazy">
 <footer>
 <p>© 2026 Gregory Phone and Computer Services</p>
 </footer>
+
+<p>Email:promisegregory2019@gmail.com</p>
 
 <script src="script.js"></script>
 </body>
