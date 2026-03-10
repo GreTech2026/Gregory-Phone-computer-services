@@ -31,19 +31,6 @@
 <meta property="og:image" content="images/repair.jpg">
 
 
-<!-- Prevent XSS attacks and unsafe scripts -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https: 'unsafe-inline';">
-
-<!-- Prevent the page from being embedded in other websites -->
-<meta http-equiv="X-Frame-Options" content="DENY">
-
-<!-- Prevent MIME type sniffing -->
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-
-<!-- Enable modern browser security -->
-<meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
-
-
 </head>
 
 <div id="loader">LOADING....WELCOME TO THE GPCS WEBSITE</div>
@@ -634,16 +621,7 @@ tech support, and creative design services.
 
 </footer>
 
-<script>
-// Disable right-click
-document.addEventListener('contextmenu', event => event.preventDefault());
 
-// Disable text selection
-document.addEventListener('selectstart', event => event.preventDefault());
-
-// Disable drag
-document.addEventListener('dragstart', event => event.preventDefault());
-</script>
 </body>
 </html>
 

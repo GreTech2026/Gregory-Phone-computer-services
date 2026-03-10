@@ -460,10 +460,10 @@ font-size:25px;
 
 /* Header layout */
 .header{
-display:flex;
+display: block;
 justify-content:center; /* center content horizontally */
 align-items:center;
-padding:15px 20px;
+padding: 40px;
 background:#0f172a; /* dark background */
 color:white;
 }
@@ -651,7 +651,7 @@ width:250px;
 
 .faq{
 padding:60px 20px;
-background:lab(89.86% -10.31 55.88);
+background:lch(87.56% 86.9 96.02);
 text-align:center;
 }
 
@@ -735,4 +735,49 @@ p{
 
 body{
 overflow-x:hidden;
+}
+
+nav{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 25px;
+flex-wrap: nowrap;
+}
+
+nav a{
+ text-decoration: none;
+ font-size: 16px;
+ white-space: nowrap;
+}
+
+section{
+width: 100%;
+padding: 40px 20px;
+box-sizing: border-box;
+}
+
+body{
+margin: 0;
+padding: 0;    
+}
+
+@media (max-width:768px){
+
+html{
+font-size:13px;
+}
+
+nav a{
+ font: size 0.8rem;  
+}
+
+h1{
+font-size: 1.3rem;
+}
+
+h3{
+font: size 1.3rem 3m; ;
+}
+
 }
