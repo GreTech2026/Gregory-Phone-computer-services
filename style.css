@@ -64,8 +64,8 @@ color:white;
 
 
 /* Reset + Body */
-body{margin:0;font-family:Arial;background:#f4f4f4;scroll-behavior:smooth;}
-header{background:lch(11.21% 18.27 56.85);color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:999;}
+body{margin:0;font-family:Arial;background:rgb(206, 181, 181);scroll-behavior:smooth;}
+header{background:lab(9.38% 7.25 13.78);color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:999;}
 nav a{color:white;margin:15px;text-decoration:none;font-weight:bold;transition:0.3s;}
 nav a:hover{color:#00c3ff;}
 
@@ -553,12 +553,12 @@ width:250px;
 
 .about-gregory{
 padding:60px 20px;
-background:#d86464;
+background:hwb(162 4% 71%);
 }
 
 .about-gregory h2{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:10px;
 font-size:32px;
 }
 
@@ -617,7 +617,7 @@ width:250px;
 
 
 .promise{
-background:#ff6600;
+background:hsl(25, 18%, 55%);
 color:white;
 text-align:center;
 padding:60px 20px;
@@ -643,7 +643,7 @@ gap:20px;
 }
 
 .promise-box{
-background:rgba(255,255,255,0.15);
+background:hwb(212 3% 17% / 0.884);
 padding:25px;
 border-radius:10px;
 width:250px;
@@ -651,7 +651,7 @@ width:250px;
 
 .faq{
 padding:60px 20px;
-background:lch(87.56% 86.9 96.02);
+background:oklch(61.198% 0.0988 102.691);
 text-align:center;
 }
 
@@ -787,3 +787,37 @@ font-family: Arial,sans-serif;
 font-size: 14px;
 }
 
+.repair-gallery{
+
+text-align:center;
+padding:50px;
+background:#111;
+color:white;
+
+}
+
+.slider{
+
+width:90%;
+margin:auto;
+overflow:hidden;
+border-radius:10px;
+
+}
+
+.slides{
+
+display:flex;
+transition:transform 0.5s ease;
+
+}
+
+.slides img{
+
+width:100%;
+max-width:400px;
+margin:10px;
+border-radius:10px;
+transition:transform 0.4s;
+
+}
