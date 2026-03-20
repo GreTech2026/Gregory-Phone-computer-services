@@ -20,23 +20,6 @@ window.open(whatsappURL, "_blank");
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
-function showSlides(){
-
-slides.forEach(slide => slide.style.display = "none");
-
-index++;
-
-if(index > slides.length){
-index = 1;
-}
-
-slides[index-1].style.display = "block";
-
-setTimeout(showSlides,3000);
-
-}
-
-showSlides();
 
 function toggleMode(){
 document.body.classList.toggle("dark");
