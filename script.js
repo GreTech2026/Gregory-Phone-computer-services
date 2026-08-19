@@ -1,164 +1,225 @@
-document.getElementById("bookingForm").addEventListener("submit", function(e){
 
-e.preventDefault();
+/* =====================================================
+   GREGORY PHONE AND COMPUTER SERVICES
+   JAVASCRIPT
+===================================================== */
 
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
-let problem = document.getElementById("problem").value;
 
-let message = "Hello Gregory, I want to book an appointment.%0A%0A"
-+ "Name: " + name + "%0A"
-+ "Phone: " + phone + "%0A"
-+ "Problem: " + problem;
+/* ================= MOBILE MENU ================= */
 
-let whatsappURL = "https://wa.me/27842133696?text=" + message;
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-window.open(whatsappURL, "_blank");
+menuToggle.addEventListener("click", function () {
+
+    navMenu.classList.toggle("active");
+
+    const icon = menuToggle.querySelector("i");
+
+    if (navMenu.classList.contains("active")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+    } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    }
 
 });
 
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+/* ================= CLOSE MOBILE MENU ================= */
+
+const navLinks = document.querySelectorAll("#navMenu a");
+
+navLinks.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        navMenu.classList.remove("active");
+
+        const icon = menuToggle.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
+/* ================= APPOINTMENT FORM ================= */
+
+const appointmentForm =
+    document.getElementById("appointmentForm");
+
+appointmentForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const service =
+        document.getElementById("service").value;
+
+    const date =
+        document.getElementById("date").value;
+
+    const message =
+        document.getElementById("message").value.trim();
 
 
-function toggleMode(){
-document.body.classList.toggle("dark");
-}
+    if (!name || !phone || !service || !date) {
 
-window.onload = function(){
-document.getElementById("loader").style.display="none";
-}
+        alert("Please complete all required fields.");
 
-function trackRepair(){
+        return;
 
-let id = document.getElementById("repairID").value;
-let status = document.getElementById("status");
-
-if(id == "1234"){
-status.innerHTML = "Your phone repair is ready for collection.";
-}
-
-else if(id == "5678"){
-status.innerHTML = "Your laptop is being repaired.";
-}
-
-else{
-status.innerHTML = "Repair ID not found.";
-}
-
-}
-
-function openPayment(){
-document.getElementById("paymentPopup").style.display="flex";
-}
-
-function closePayment(){
-document.getElementById("paymentPopup").style.display="none";
-}
-
-
-let user = document.getElementById("username").value;
-let pass = document.getElementById("password").value;
-let message = document.getElementById("loginMessage");
-
-if(user === "customer" && pass === "1234"){
-
-message.innerHTML = "Login successful. Welcome!";
-window.location.href = "dashboard.html";
-
-}
-
-else{
-
-message.innerHTML = "Incorrect username or password.";
-
-}
-
-function checkTicket(){
-
-let id = document.getElementById("ticketID").value;
-let status = document.getElementById("ticketStatus");
-
-// Example repair tickets
-let tickets = {
-"GP1001":"Your phone repair is complete. Ready for pickup.",
-"GP1002":"Your laptop is being repaired. Estimated ready in 2 days.",
-"GP1003":"Your computer repair is in progress. Technician assigned: Gregory.",
-"GP1004":"Your tablet repair is complete. Payment received."
-};
-
-if(tickets[id]){
-status.innerHTML = tickets[id];
-status.style.color = "green";
-} else {
-status.innerHTML = "Ticket ID not found. Please check again.";
-status.style.color = "red";
-}
-
-}
-
-function checkTicket(){
-
-let id = document.getElementById("ticketID").value;
-let status = document.getElementById("ticketStatus");
-
-// Example repair tickets
-let tickets = {
-"GP1001":"Your phone repair is complete. Ready for pickup.",
-"GP1002":"Your laptop is being repaired. Estimated ready in 2 days.",
-"GP1003":"Your computer repair is in progress. Technician assigned: Gregory.",
-"GP1004":"Your tablet repair is complete. Payment received."
-};
-
-if(tickets[id]){
-status.innerHTML = tickets[id];
-status.style.color = "green";
-} else {
-status.innerHTML = "Ticket ID not found. Please check again.";
-status.style.color = "red";
-}
-
-}// Example customers and tickets
-const customers = {
-    "Promise": { password: "1234", tickets: {
-        "GP1001":"Phone repair complete. Ready for pickup.",
-        "GP1005":"Laptop repair in progress. Ready in 2 days."
-    }},
-    "Benjamin": { password: "abcd", tickets: {
-        "GP1002":"Tablet repair complete. Ready for pickup."
-    }},
-    "Naomie": { password: "5678", tickets: {
-        "GP1003":"Computer repair in progress. Technician assigned: Gregory."
-    }}
-};
-
-function login(){
-    let user = document.getElementById("username").value;
-    let pass = document.getElementById("password").value;
-    let message = document.getElementById("loginMessage");
-
-    if(customers[user] && customers[user].password === pass){
-        message.innerHTML = "Login successful. Welcome, " + user + "!";
-        message.style.color = "green";
-
-        // Save logged in user
-        sessionStorage.setItem("loggedInUser", user);
-
-        // Redirect to dashboard
-        window.location.href = "dashboard.html";
-    } else {
-        message.innerHTML = "Incorrect username or password.";
-        message.style.color = "red";
     }
-}
+
+const formattedDate =
+        new Date(date).toLocaleDateString(
+            "en-ZA",
+            {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            }
+        );
 
 
-function toggleMenu(){
-const menu = document.querySelector(".nav-menu");
-menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-}
+    const whatsappMessage =
+        `Hello Gregory Phone and Computer Services.%0A%0A` +
+
+        `I would like to book an appointment.%0A%0A` +
+
+        `*Name:* ${name}%0A` +
+
+        `*Phone:* ${phone}%0A` +
+
+        `*Service:* ${service}%0A` +
+
+        `*Preferred Date:* ${formattedDate}%0A` +
+
+        `*Message:* ${message || "No additional message."}`;
+
+
+    const whatsappNumber = "27842133696";
+const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+
+    window.open(whatsappURL, "_blank");
+
+
+    appointmentForm.reset();
+
+});
+
+/* ================= CURRENT YEAR ================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* ================= BACK TO TOP ================= */
+
+const backToTop =
+    document.getElementById("backToTop");
+
+
+window.addEventListener("scroll", function() {
+
+    if (window.scrollY > 500) {
+
+        backToTop.classList.add("show");
+
+    } else {
+
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+backToTop.addEventListener("click", function() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+
+/* ================= SET MINIMUM APPOINTMENT DATE ================= */
+
+const dateInput =
+    document.getElementById("date");
+
+
+const today =
+    new Date().toISOString().split("T")[0];
+
+
+dateInput.setAttribute("min", today);
+
+const faqQuestions =
+document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(function(question) {
+
+question.addEventListener("click", function() {
+
+
+    const faqItem =
+        question.parentElement;
+
+
+    const answer =
+        faqItem.querySelector(".faq-answer");
 
 
 
 
+    /* Close other FAQ answers */
 
+
+    document.querySelectorAll(".faq-item").forEach(function(item) {
+
+
+        if (item !== faqItem) {
+
+
+            item.classList.remove("active");
+
+
+            item.querySelector(".faq-answer").style.maxHeight = null;
+
+
+        }
+
+
+    });
+
+/* Open / close selected answer */
+
+    faqItem.classList.toggle("active");
+
+
+    if (faqItem.classList.contains("active")) {
+
+        answer.style.maxHeight =
+            answer.scrollHeight + "px";
+
+    } else {
+
+        answer.style.maxHeight = null;
+
+    }
+});
