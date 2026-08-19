@@ -1,11 +1,4 @@
 
-/* =====================================================
-   GREGORY PHONE AND COMPUTER SERVICES
-   JAVASCRIPT
-===================================================== */
-
-
-/* ================= MOBILE MENU ================= */
 
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
@@ -30,7 +23,7 @@ menuToggle.addEventListener("click", function () {
 
 });
 
-/* ================= CLOSE MOBILE MENU ================= */
+
 
 const navLinks = document.querySelectorAll("#navMenu a");
 
@@ -49,7 +42,7 @@ navLinks.forEach(function(link) {
 
 });
 
-/* ================= APPOINTMENT FORM ================= */
+
 
 const appointmentForm =
     document.getElementById("appointmentForm");
@@ -121,13 +114,12 @@ const whatsappURL =
 
 });
 
-/* ================= CURRENT YEAR ================= */
+
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
 
 
-/* ================= BACK TO TOP ================= */
 
 const backToTop =
     document.getElementById("backToTop");
@@ -157,7 +149,6 @@ backToTop.addEventListener("click", function() {
 });
 
 
-/* ================= SET MINIMUM APPOINTMENT DATE ================= */
 
 const dateInput =
     document.getElementById("date");
@@ -172,7 +163,7 @@ dateInput.setAttribute("min", today);
 const faqQuestions =
 document.querySelectorAll(".faq-question");
 
-faqQuestions.forEach(function(question) {
+faqQuestions.forEach(function (question) {
 
 question.addEventListener("click", function() {
 
@@ -222,4 +213,13 @@ question.addEventListener("click", function() {
         answer.style.maxHeight = null;
 
     }
+});
+
+});
+
+document.querySelectorAll('#navMenu a').forEach(function(link){
+    link.addEventListener('click' , function(){
+        document.getElementById( ' navMenu').classList.remove('active');
+
+    });
 });
