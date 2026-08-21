@@ -1440,3 +1440,220 @@ grid-template-columns: 1fr;
 }
 
 }
+
+
+.laptop-promo {
+
+padding: 90px 20px;
+
+background: linear-gradient(135deg, #071e3d, #0a4f7a);
+
+color: white;
+
+}
+
+.laptop-promo-container {
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 55px;
+
+align-items: center;
+
+}
+.laptop-promo-image {
+
+overflow: hidden;
+
+border-radius: 20px;
+
+box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+
+}
+
+.laptop-promo-image img {
+
+width: 100%;
+
+height: 430px;
+
+object-fit: cover;
+
+display: block;
+
+transition: transform 0.5s ease;
+
+}
+.laptop-promo-image img:hover {
+
+transform: scale(1.05);
+
+}
+
+.promo-label {
+
+font-size: 14px;
+
+font-weight: 700;
+
+letter-spacing: 1.5px;
+
+}
+
+.laptop-promo-content h2 {
+
+font-size: 46px;
+
+line-height: 1.15;
+
+margin: 15px 0 20px;
+
+}
+
+.laptop-promo-content h2 span {
+
+color: #00bfff;
+
+}
+
+.promo-intro {
+
+font-size: 20px;
+
+font-weight: 600;
+
+line-height: 1.6;
+
+}
+.laptop-promo-content p {
+
+line-height: 1.7;
+
+opacity: 0.9;
+
+}
+
+.promo-list {
+
+display: grid;
+
+grid-template-columns: repeat(2, 1fr);
+
+gap: 12px;
+
+margin: 25px 0;
+
+}
+
+.promo-list div {
+
+background: rgba(255,255,255,0.1);
+
+padding: 12px;
+
+border-radius: 8px;
+
+display: flex;
+
+align-items: center;
+
+gap: 10px;
+
+}
+
+.promo-list span {
+
+font-size: 22px;
+
+}
+
+.promo-list strong {
+
+font-size: 14px;
+
+}
+
+.promo-button, .promo-call {
+
+display: inline-block;
+padding: 14px 22px;
+
+border-radius: 8px;
+
+text-decoration: none;
+
+font-weight: 700;
+
+margin-right: 10px;
+
+margin-top: 10px;
+
+}
+
+.promo-button {
+
+background: #00bfff;
+
+color: white;
+
+}
+.promo-call {
+
+border: 1px solid rgba(255,255,255,0.5);
+
+color: white;
+
+}
+
+.promo-button:hover, .promo-call:hover {
+
+transform: translateY(-2px);
+
+}
+
+@media (max-width: 768px) {
+
+.laptop-promo-container {
+
+grid-template-columns: 1fr;
+
+gap: 35px;
+
+}
+
+.laptop-promo-image img {
+
+height: 280px;
+
+}
+
+.laptop-promo-content h2 {
+
+font-size: 34px;
+
+}
+
+.promo-intro {
+
+font-size: 17px;
+
+}
+.promo-list {
+
+grid-template-columns: 1fr;
+
+}
+
+.promo-button, .promo-call {
+
+display: block;
+
+text-align: center;
+
+margin-right: 0;
+
+}
+
+}
