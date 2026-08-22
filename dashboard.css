@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1d2939;
+}
+
+.dashboard-header {
+    background: #071e3d;
+    color: white;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+.dashboard-header p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+#logoutBtn {
+    border: none;
+    background: #e53935;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.dashboard-welcome {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-welcome h2 {
+    margin-top: 0;
+}
+
+.post-form-section,
+.posts-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.post-form-section h2,
+.posts-section h2 {
+    margin-top: 0;
+    color: #071e3d;
+}
+#postForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#postForm label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#postForm input,
+#postForm textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+#postForm textarea {
+    resize: vertical;
+}
+
+
+#publishBtn {
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 7px;
+    background: #0878a8;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#publishBtn:hover {
+    background: #065c80;
+}
+
+#postMessage {
+    font-weight: bold;
+}
+
+#postsList {
+    display: grid;
+    gap: 20px;
+}
+
+.admin-post {
+    border: 1px solid #e4e7ec;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.admin-post img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.admin-post h3 {
+    margin: 5px 0 10px;
+}
+
+.admin-post p {
+    line-height: 1.6;
+    color: #475467;
+}
+
+.delete-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-header {
+        padding: 15px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 22px;
+    }
+
+    .dashboard-header p {
+        font-size: 11px;
+    }
+
+    .dashboard-container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .post-form-section,
+    .posts-section,
+    .dashboard-welcome {
+        padding: 20px;
+    }
+
+    #logoutBtn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+}

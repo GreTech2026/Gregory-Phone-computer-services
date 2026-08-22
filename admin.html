@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Admin Login</title>
-</head>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Admin Login | GREGORY PHONE AND COMPUTER SERVICES</title> <link rel="stylesheet" href="admin.css"> </head> <body> <div class="admin-container"> <div class="admin-box"> <h1>GREGORY</h1> <h2>PHONE & COMPUTER SERVICES</h2> <p>Admin Dashboard</p> <form id="loginForm"> <input type="email" id="email" placeholder="Admin Email" required> <input type="password" id="password" placeholder="Password" required>
 
-<body>
+<button type="submit">LOGIN</button>
 
-<h2>Admin Login</h2>
-
-<input type="text" id="username" placeholder="Username">
-<br><br>
-
-<input type="password" id="password" placeholder="Password">
-<br><br>
-
-<button onclick="login()">Login</button>
-
-<script>
-function login(){
-
-var user = document.getElementById("username").value;
-var pass = document.getElementById("password").value;
-
-if(user == "admin" && pass == "1234"){
-alert("Login Successful");
-window.location="dashboard.html";
-}
-
-else{
-alert("Wrong Login");
-}
-
-}
-</script>
-
-</body>
-</html>
+<p id="message"></p> </form> </div> </div> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <script src="admin.js"></script> </body> </html>

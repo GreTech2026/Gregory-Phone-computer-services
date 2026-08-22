@@ -1,38 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Customer Dashboard</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<h1>Customer Dashboard</h1>
-<p id="welcomeMsg"></p>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Admin Dashboard | GREGORY PHONE AND COMPUTER SERVICES</title> <link rel="stylesheet" href="dashboard.css"> </head> <body> <header class="dashboard-header"> <div> <h1>GREGORY</h1> <p>PHONE & COMPUTER SERVICES</p> </div>
 
-<section class="repair-ticket">
-<h2>My Repair Tickets</h2>
+<button id="logoutBtn">Logout</button>
 
-<input type="text" id="ticketID" placeholder="Enter Ticket ID">
-<button onclick="checkTicket()">Check Status</button>
+</header> <main class="dashboard-container"> <section class="dashboard-welcome"> <h2>Welcome to your Admin Dashboard</h2> <p> Create and manage posts for GREGORY PHONE AND COMPUTER SERVICES. </p> </section> <section class="post-form-section"> <h2>Create New Post</h2> <form id="postForm">
 
-<p id="ticketStatus"></p>
-</section>
+<label for="title">Post Title</label>
 
-<script src="script.js"></script>
-<script>
-    // Get logged-in user
-    let user = sessionStorage.getItem("loggedInUser");
-    document.getElementById("welcomeMsg").innerHTML = "Welcome, " + user + "!";
-function checkTicket(){
-        let id = document.getElementById("ticketID").value;
-        let status = document.getElementById("ticketStatus");
+<input
+type="text"
+id="title"
+placeholder="Enter post title"
+required
 
-        if(user && customers[user].tickets[id]){
-            status.innerHTML = customers[user].tickets[id];
-            status.style.color = "green";
-        } else {
-            status.innerHTML = "Ticket ID not found or does not belong to you.";
-            status.style.color = "red";
-        }
-    }
-</script>
+<label for="content">Post Content</label>
+
+<textarea id="content" rows="8" placeholder="Write your post here..." required ></textarea>
+
+<label for="image">Post Image</label>
+
+<input
+type="file"
+id="image"
+accept="image/*"
+
+<button type="submit" id="publishBtn"> Publish Post </button> <p id="postMessage"></p> </form> </section> <section class="posts-section"> <h2>Your Posts</h2> <div id="postsList"> <p>Loading posts...</p> </div> </section> </main> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <script src="dashboard.js"></script> </body> </html>

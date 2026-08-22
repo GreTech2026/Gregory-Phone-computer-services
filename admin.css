@@ -1,0 +1,99 @@
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #061a33, #0878a8);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.admin-container {
+width: 100%;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.admin-box {
+max-width: 420px;
+margin: auto;
+background: rgba(255, 255, 255, 0.97);
+padding: 35px 25px;
+border-radius: 18px;
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+text-align: center;
+}
+
+.admin-box h1 {
+margin: 0;
+color: #0878a8;
+font-size: 36px;
+letter-spacing: 2px;
+}
+
+.admin-box h2 {
+margin: 5px 0 10px;
+font-size: 16px;
+color: #333;
+}
+
+.admin-box p {
+color: #666;
+margin-bottom: 25px;
+}
+
+#loginForm {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+#loginForm input {
+width: 100%;
+padding: 14px;
+box-sizing: border-box;
+border: 1px solid #ddd;
+border-radius: 8px;
+font-size: 16px;
+outline: none;
+}
+
+#loginForm input:focus {
+border-color: #0878a8;
+}
+
+#loginForm button {
+padding: 14px;
+border: none;
+border-radius: 8px;
+background: #0878a8;
+color: white;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+
+#loginForm button:hover {
+background: #065c80;
+}
+
+#message {
+margin-top: 10px;
+font-size: 14px;
+}
+
+@media (max-width: 480px) {
+
+.admin-box {
+    padding: 30px 20px;
+}
+
+.admin-box h1 {
+    font-size: 30px;
+}
+
+.admin-box h2 {
+    font-size: 14px;
+}
+
+}
