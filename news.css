@@ -256,12 +256,11 @@ body {
 .news-card img {
     width: 100%;
 
-    height: 220px;
-
-    object-fit: cover;
-
+    height: auto;
+max-height: 600px;
+    object-fit: contain;
     display: block;
-
+    background: #ffffff;
     border-bottom: 4px solid #00bfff;
 }
 
@@ -421,12 +420,17 @@ footer::before {
 
 
     .news-card img {
-        height: 190px;
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+        object-fit: contain;
+        display: block;
+        background: #ffffff;
+        border-bottom: 4px solid #00bfff;
     }
 
 
     .news-card-content {
         padding: 20px;
     }
-
 }
