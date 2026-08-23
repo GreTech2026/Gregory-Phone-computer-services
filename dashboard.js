@@ -5,9 +5,8 @@ const SUPABASE_KEY = "sb_publishable_TiWvrpFWAOK-YEB9FqzJTg_y3JZmnRZ";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_KEY
-);
-
+    SUPABASE_KEY,
+)
 
 async function checkLogin() {
  const { data, error } = await supabaseClient.auth.getSession();
@@ -92,6 +91,7 @@ const { data: imageData } =
         // Save post in database
         const { error: insertError } =
             await supabaseClient
+            .schema("public")
                 .from("posts")
                 .insert([
                     {
@@ -137,6 +137,7 @@ async function loadPosts() {
 
     const { data, error } =
         await supabaseClient
+          .schema("public")
             .from("posts")
             .select("*")
             .order("created_at", { ascending: false });
@@ -239,6 +240,7 @@ async function deletePost(id) {
 
     const { error } =
         await supabaseClient
+        .schema("public")
             .from("posts")
             .delete()
             .eq("id", id);
