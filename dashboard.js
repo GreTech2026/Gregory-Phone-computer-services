@@ -539,36 +539,53 @@ async function updateRepairStatus(repairId, newStatus) {
             })
             .eq("id", repairId)
             .select("id, ticket_number, status");
-    
 
         if (error) {
 
-            console.error("Status update error:", error);
+            console.error(
+                "Status update error:",
+                error
+            );
 
             alert(
                 "Could not update repair status:\n" +
                 error.message
             );
 
+            return;
         }
 
+        if (!data || data.length === 0) {
+
+            alert(
+                "The repair status was not updated. " +
+                "No repair record was found."
+            );
+
+            return;
+        }
 
         alert(
             "Repair status updated successfully! ✅\n\n" +
             "New Status: " +
-            newStatus
+            data[0].status
         );
 
         await loadRepairs();
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Something went wrong:",
+            error
+        );
 
         alert(
             "Something went wrong while updating the repair."
         );
+
     }
+
 }
 
 

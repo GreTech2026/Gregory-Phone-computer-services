@@ -323,3 +323,439 @@ document.querySelectorAll('#navMenu a').forEach(function(link){
 
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+const chatbotToggle = document.getElementById("chatbotToggle");
+const chatbotBox = document.getElementById("chatbotBox");
+const chatbotClose = document.getElementById("chatbotClose");
+
+if (chatbotToggle && chatbotBox) {
+
+    chatbotToggle.addEventListener("click", function () {
+        chatbotBox.style.display = "block";
+        chatbotToggle.style.display = "none";
+    });
+
+}
+
+if (chatbotClose && chatbotBox) {
+
+    chatbotClose.addEventListener("click", function () {
+        chatbotBox.style.display = "none";
+        chatbotToggle.style.display = "block";
+    });
+
+}
+
+});
+
+function chatbotAction(action) {
+
+const body = document.querySelector(".chatbot-body");
+
+if (!body) return;
+
+
+if (action === "track") {
+
+    window.location.href = "track.html";
+
+}
+
+
+else if (action === "booking") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            📅 <strong>Book a Repair</strong><br><br>
+            Complete our appointment form to book
+            your repair.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="window.location.href='#appointment'">
+            📅 Open Booking Form
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('menu')">
+            ⬅️ Main Menu
+        </button>
+    `;
+
+}
+
+
+else if (action === "phone") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            📱 <strong>Phone Repairs</strong><br><br>
+
+            • Phone troubleshooting<br>
+            • Screen problems<br>
+            • Charging problems<br>
+            • Software problems<br>
+            • General phone repairs
+        </div>
+
+        <button class="chatbot-option"
+            onclick="window.location.href='#appointment'">
+            📅 Book Phone Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('menu')">
+            ⬅️ Main Menu
+        </button>
+    `;
+
+}
+
+
+else if (action === "computer") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            💻 <strong>Computer Repairs</strong><br><br>
+
+            • Laptop troubleshooting<br>
+            • Windows problems<br>
+            • Operating system installation<br>
+            • Computer upgrades<br>
+            • Virus and malware assistance
+        </div>
+
+        <button class="chatbot-option"
+            onclick="window.location.href='#appointment'">
+            📅 Book Computer Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('menu')">
+            ⬅️ Main Menu
+        </button>
+    `;
+
+}
+
+
+else if (action === "menu") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            Hello! 👋<br><br>
+            I'm <strong>GREGORY Assistant</strong>.<br>
+            How can I help you today?
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('track')">
+            🔧 Track My Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('booking')">
+            📅 Book a Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('phone')">
+            📱 Phone Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('computer')">
+            💻 Computer Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Frequently Asked Questions
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('contact')">
+            📞 Contact Us
+        </button>
+    `;
+
+}
+
+
+else if (action === "faq") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            ❓ <strong>Frequently Asked Questions</strong><br><br>
+            Choose a question below and I'll help you.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('price')">
+            💰 How much does a repair cost?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('time')">
+            ⏱️ How long does a repair take?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('phonefaq')">
+            📱 What phone problems do you repair?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('computerfaq')">
+            💻 What computer problems do you repair?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('bookingfaq')">
+            📅 How do I book a repair?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('trackingfaq')">
+            🔧 How do I track my repair?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('contactfaq')">
+            📞 How can I contact GREGORY?
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('menu')">
+            ⬅️ Main Menu
+        </button>
+    `;
+
+}
+
+
+else if (action === "price") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            💰 <strong>Repair Costs</strong><br><br>
+            Repair prices depend on the device,
+            the problem and the parts required.
+            <br><br>
+            Contact us or book an assessment
+            for an accurate repair price.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('booking')">
+            📅 Book an Assessment
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "time") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            ⏱️ <strong>Repair Time</strong><br><br>
+            Repair time depends on the type of problem,
+            device condition and availability of parts.
+            <br><br>
+            We will advise you about the expected
+            repair time after assessing your device.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('booking')">
+            📅 Book a Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "phonefaq") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            📱 <strong>Phone Problems We Repair</strong><br><br>
+            • Phone troubleshooting<br>
+            • Screen problems<br>
+            • Charging problems<br>
+            • Software problems<br>
+            • General phone repairs
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('booking')">
+            📅 Book a Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "computerfaq") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            💻 <strong>Computer Problems We Repair</strong><br><br>
+            • Laptop troubleshooting<br>
+            • Windows problems<br>
+            • Operating system installation<br>
+            • Computer upgrades<br>
+            • Virus and malware assistance
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('booking')">
+            📅 Book a Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "bookingfaq") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            📅 <strong>How to Book a Repair</strong><br><br>
+            Open our appointment form, provide your
+            device information and describe the problem.
+            Then submit your appointment request.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="window.location.href='#appointment'">
+            📅 Open Booking Form
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "trackingfaq") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            🔧 <strong>Track Your Repair</strong><br><br>
+            If you already have a repair ticket number,
+            use our Repair Tracking system to check
+            the progress of your repair.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('track')">
+            🔧 Track My Repair
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "contactfaq") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            📞 <strong>Contact GREGORY</strong><br><br>
+            Need help with your device?
+            Contact GREGORY PHONE AND COMPUTER SERVICES
+            and we'll be happy to assist you.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('contact')">
+            📞 Contact Us
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('faq')">
+            ❓ Back to FAQ
+        </button>
+    `;
+
+}
+
+
+else if (action === "contact") {
+
+    body.innerHTML = `
+        <div class="bot-message">
+            📞 <strong>Contact GREGORY</strong><br><br>
+            Need help with your device?
+            We're here to assist you.
+        </div>
+
+        <button class="chatbot-option"
+            onclick="window.location.href='#contact'">
+            📞 Contact Us
+        </button>
+
+        <button class="chatbot-option"
+            onclick="chatbotAction('menu')">
+            ⬅️ Main Menu
+        </button>
+    `;
+
+}
+
+}
+
+
+/* =========================================
+GPCS LOADING SCREEN
+========================================= */
+
+window.addEventListener("load", function () {
+
+setTimeout(function () {
+
+    const loadingScreen =
+        document.getElementById("gpcsLoadingScreen");
+
+    if (loadingScreen) {
+
+        loadingScreen.style.opacity = "0";
+        loadingScreen.style.visibility = "hidden";
+
+    }
+
+}, 10000);
+
+});

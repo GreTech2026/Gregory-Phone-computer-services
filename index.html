@@ -160,6 +160,31 @@
 
 </script>
 
+<!-- GPCS WEBSITE LOADING SCREEN -->
+
+<div id="gpcsLoadingScreen">
+
+<div class="gpcs-loading-content">
+
+    <img src="gpcs-loading2.jpg"
+         alt="Welcome to GPCS">
+
+    <div class="gpcs-loading-text">
+        <div class="loading-title">LOADING...</div>
+
+        <div class="welcome-title">
+            WELCOME TO THE GPCS WEBSITE
+        </div>
+
+        <div class="loading-line"></div>
+
+        <p>GREGORY PHONE AND COMPUTER SERVICES</p>
+    </div>
+
+</div>
+
+</div>
+
 </head>
 
 <title>GREGORY PHONE  AND COMPUTER  SERVICES</title>
@@ -1897,6 +1922,61 @@ How Can We
  <script src="script.js"></script>
 
 <script src="reviews.js"></script>
+
+
+<!-- GREGORY ASSISTANT CHATBOT -->
+
+<div class="chatbot-container">
+
+<button id="chatbotToggle" class="chatbot-toggle">
+    💬
+</button>
+
+<div id="chatbotBox" class="chatbot-box">
+
+    <div class="chatbot-header">
+        <div>
+            <strong>GREGORY Assistant</strong>
+            <small>We're here to help 👋</small>
+        </div>
+
+        <button id="chatbotClose" class="chatbot-close">
+            ×
+        </button>
+    </div>
+
+    <div class="chatbot-body">
+
+        <div class="bot-message">
+            Hello! 👋<br>
+            How can I help you?
+        </div>
+
+        <button class="chatbot-option" onclick="chatbotAction('track')">
+            🔧 Track Repair
+        </button>
+
+        <button class="chatbot-option" onclick="chatbotAction('booking')">
+            📅 Book a Repair
+        </button>
+
+        <button class="chatbot-option" onclick="chatbotAction('phone')">
+            📱 Phone Repair
+        </button>
+
+        <button class="chatbot-option" onclick="chatbotAction('computer')">
+            💻 Computer Repair
+        </button>
+
+        <button class="chatbot-option" onclick="chatbotAction('contact')">
+            📞 Contact Us
+        </button>
+
+    </div>
+
+</div>
+
+</div>
 
 </body> 
 </html>
