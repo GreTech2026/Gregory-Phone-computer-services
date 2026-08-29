@@ -1,13 +1,183 @@
 
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Track Your Repair | GREGORY PHONE AND COMPUTER SERVICES</title> <meta name="description" content="Track your phone or computer repair with GREGORY PHONE AND COMPUTER SERVICES. Enter your repair ticket number to check your repair status."> <link rel="stylesheet" href="track.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> </head> <body> <header class="track-header"> <a href="index.html" class="logo"> <span>G</span> </a> <div class="header-text"> <h1> GREGORY </h1> <p> PHONE & COMPUTER SERVICES </p> </div> </header> <main class="track-container"> <section class="track-card"> <div class="track-icon"> <i class="fas fa-screwdriver-wrench"></i> </div> <h2> Track Your Repair </h2> <p class="track-intro"> Enter your repair ticket number below to check the current status of your repair. </p> <form id="trackForm"> <label for="ticketNumber"> Repair Ticket Number </label> <input type="text" id="ticketNumber" placeholder="Example: GPCS-2026-1234" required > <button type="submit" id="trackBtn"> <i class="fas fa-search"></i> Track Repair </button> </form> <div id="trackResult" class="track-result"> </div> <a href="index.html#appointment" class="back-booking"> <i class="fas fa-calendar-check"></i> Book a Repair </a> </section> </main> <footer class="track-footer"> </div>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Your Repair | GREGORY PHONE AND COMPUTER SERVICES</title>
 
+<meta name="description" content="Track your phone or computer repair with GREGORY PHONE AND COMPUTER SERVICES. Enter your repair ticket number to check your repair status.">
+
+<link rel="stylesheet" href="track.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head> <body> <header class="track-header">
+<a href="index.html" class="logo">
+    <span>G</span>
+</a>
+
+<div class="header-text">
+    <h1>GREGORY</h1>
+    <p>PHONE &amp; COMPUTER SERVICES</p>
+</div>
+</header> <main class="track-container">
+
+<section class="track-card">
+
+    <div class="track-icon">
+        <i class="fas fa-screwdriver-wrench"></i>
+    </div>
+
+    <h2>Track Your Repair</h2>
+
+    <p class="track-intro">
+        Enter your repair ticket number below to check the current status of your repair.
+    </p>
+
+
+    <form id="trackForm">
+
+        <label for="ticketNumber">
+            Repair Ticket Number
+        </label>
+
+        <input
+            type="text"
+            id="ticketNumber"
+            placeholder="Example: GPCS-2026-1234"
+            autocomplete="off"
+            required
+        >
+<button type="submit" id="trackBtn">
+            <i class="fas fa-search"></i>
+            Track Repair
+        </button>
+
+    </form>
+
+<!-- ================= TRACK RESULT ================= -->
+
+    <div id="trackResult" class="track-result">
+    </div>
+
+
+    <!-- ================= REPAIR TIMELINE ================= -->
+
+    <div id="repairTimeline" class="repair-timeline" style="display:none;">
+
+        <h3>
+            <i class="fas fa-route"></i>
+            Repair Progress
+        </h3>
+
+        <div class="timeline">
+
+            <div class="timeline-step" data-status="Booking Received">
+                <div class="timeline-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Booking Received</strong>
+                    <span>Your repair booking has been received.</span>
+                </div>
+            </div>
+
+<div class="timeline-step" data-status="Device Received">
+                <div class="timeline-icon">
+                    <i class="fas fa-mobile-screen-button"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Device Received</strong>
+                    <span>Your device has been received.</span>
+                </div>
+            </div>
+
+
+            <div class="timeline-step" data-status="Under Diagnosis">
+                <div class="timeline-icon">
+                    <i class="fas fa-magnifying-glass"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Under Diagnosis</strong>
+                    <span>Our technician is checking the device.</span>
+                </div>
+            </div>
+
+<div class="timeline-step" data-status="Repair In Progress">
+                <div class="timeline-icon">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Repair In Progress</strong>
+                    <span>Your device is currently being repaired.</span>
+                </div>
+            </div>
+
+
+            <div class="timeline-step" data-status="Waiting for Parts">
+                <div class="timeline-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Waiting for Parts</strong>
+                    <span>We are waiting for the required parts.</span>
+                </div>
+            </div>
+
+<div class="timeline-step" data-status="Repair Completed">
+                <div class="timeline-icon">
+                    <i class="fas fa-circle-check"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Repair Completed</strong>
+                    <span>Your repair has been completed.</span>
+                </div>
+            </div>
+
+
+            <div class="timeline-step" data-status="Ready for Collection">
+                <div class="timeline-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+
+                <div class="timeline-content">
+                    <strong>Ready for Collection</strong>
+                    <span>Your device is ready for collection.</span>
+                </div>
+            </div>
+
+
+            <div class="timeline-step" data-status="Collected">
+                <div class="timeline-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+<div class="timeline-content">
+                    <strong>Collected</strong>
+                    <span>Your repaired device has been collected.</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<!-- ================= BOOKING BUTTON ================= -->
+
+    <a href="index.html#appointment" class="back-booking">
+        <i class="fas fa-calendar-check"></i>
+        Book a Repair
+    </a>
+
+</section>
+</main> <!-- ================= FOOTER ================= --> <footer class="track-footer">
 <div class="footer-bottom">
 
     <p>
         © <span id="year"></span>
         GREGORY PHONE AND COMPUTER SERVICES.
-        All Rights Reserved.Website Content and design may not be reproduced without permission.
-
+        All Rights Reserved.
+        Website Content and design may not be reproduced without permission.
     </p>
 
     <p>
@@ -16,4 +186,11 @@
 
 </div>
 
-</footer> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <script src="track.js"></script> </body> </html>
+</footer> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+
+<script src="track.js"></script>
+
+<!-- ================= YEAR ================= -->
+ 
+ <script> const yearElement = 
+ document.getElementById("year"); if (yearElement) { yearElement.textContent = new Date().getFullYear(); } </script> </body> </html>

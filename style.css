@@ -1658,3 +1658,271 @@ margin-right: 0;
 
 
 }
+
+/* ================= PROFESSIONAL REVIEWS ================= */
+
+.reviews-summary {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.average-rating {
+    text-align: center;
+}
+
+.average-rating strong {
+    display: block;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.average-stars {
+    font-size: 28px;
+    letter-spacing: 4px;
+}
+
+.average-rating p {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* ================= LIVE REVIEWS ================= */
+
+.live-review {
+    animation: reviewFadeIn 0.5s ease;
+}
+
+@keyframes reviewFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ================= WRITE REVIEW ================= */
+
+.write-review {
+    max-width: 700px;
+    margin: 50px auto 30px;
+    padding: 30px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.write-review h2 {
+    margin-bottom: 10px;
+}
+
+.write-review h2 i {
+    margin-right: 8px;
+}
+
+.write-review > p {
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+/* ================= FORM ================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.15);
+    color: inherit;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ================= STAR SELECTOR ================= */
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+}
+
+.star-rating button {
+    border: none;
+    background: transparent;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.35;
+    transition: 0.2s ease;
+}
+
+.star-rating button:hover,
+.star-rating button.selected {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ================= SUBMIT BUTTON ================= */
+
+.review-submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.review-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ================= REVIEW MESSAGE ================= */
+
+.review-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ================= WHATSAPP BUTTON ================= */
+
+.review-button {
+    text-align: center;
+    margin-top: 25px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .reviews-summary {
+        margin: 20px 0;
+    }
+
+    .average-rating strong {
+        font-size: 36px;
+    }
+
+    .average-stars {
+        font-size: 24px;
+    }
+
+    .write-review {
+        margin: 35px 10px 25px;
+        padding: 20px;
+    }
+
+    .star-rating button {
+        font-size: 28px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+}
+
+/* ================= VERIFIED CUSTOMER ================= */
+
+.customer-review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.customer-review-info h3 {
+    margin: 0;
+}
+
+.verified-review {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.verified-review i {
+    font-size: 12px;
+}
+
+.customer-review-info small {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+
+/* ================= LIVE REVIEW CARD ================= */
+
+.live-review {
+    position: relative;
+    animation: reviewFadeIn 0.5s ease;
+}
+
+.live-review::before {
+    content: "CUSTOMER REVIEW";
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    opacity: 0.6;
+}
+
+@keyframes reviewFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}

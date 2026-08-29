@@ -1288,7 +1288,7 @@ How Can We
 
             </div>
 
-        </div>
+</div>
 <div class="faq-item">
 
             <button class="faq-question">
@@ -1327,9 +1327,9 @@ How Can We
                     Marshalltown, Johannesburg 2017, South Africa.
                 </p>
 
-            </div>
-
         </div>
+</div>
+
 <div class="faq-item">
 
             <button class="faq-question">
@@ -1378,100 +1378,204 @@ How Can We
 
 </div>
 
-</section> <!-- ================= CUSTOMER REVIEWS ================= --> <section id="reviews" class="reviews-section">
-<div class="container">
+<!-- ================= CUSTOMER REVIEWS ================= -->
+<section id="reviews" class="reviews-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>CUSTOMER REVIEWS</p>
+
+            <h2>
+                What Our Customers
+                <span>Say</span>
+            </h2>
+
+            <p class="section-description">
+                We value every customer and appreciate your feedback.
+            </p>
+
+        </div>
 
 
-    <div class="section-title">
+        <!-- ================= RATING SUMMARY ================= -->
 
+        <div class="reviews-summary">
 
-        <p>CUSTOMER REVIEWS</p>
+            <div class="average-rating">
 
+                <strong id="averageRating">
+                    5.0
+                </strong>
 
-        <h2>
-            What Our Customers
-            <span>Say</span>
-        </h2>
+                <div class="average-stars">
+                    ★★★★★
+                </div>
 
+                <p>
+                    Based on
+                    <span id="reviewCount">0</span>
+                    customer reviews
+                </p>
 
-        <p class="section-description">
-            We value every customer and appreciate your feedback.
-        </p>
-
-
-    </div>
-
-
-    <div class="reviews-grid">
-
-
-        <div class="review-card">
-
-            <div class="stars">
-                ★★★★★
             </div>
+
+        </div>
+
+
+        <!-- ================= REVIEWS ================= -->
+
+        <div class="reviews-grid">
+
+            <div id="reviewsList">
+                
+            
+            
+            </div>
+
+
+                
+        </div>
+
+
+        <!-- ================= WRITE REVIEW ================= -->
+
+        <div class="write-review">
+
+            <h2>
+                <i class="fas fa-star"></i>
+                Leave Your Review
+            </h2>
 
             <p>
-                "Professional service and very helpful.
-                Gregory explained the problem clearly and
-                helped me understand what needed to be done."
+                Tell us about your experience with
+                GREGORY PHONE AND COMPUTER SERVICES.
             </p>
 
-            <h3>Joseph Mbuna</h3>
 
-            <small>Nkhotakota,Malawi 🌍</small>
+            <form id="reviewForm">
+
+                <div class="form-group">
+
+                    <label for="reviewName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reviewName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Your Rating
+                    </label>
+
+                    <div
+                        class="star-rating"
+                        id="starRating"
+                    >
+
+                        <button type="button" data-rating="1">
+                            ★
+                        </button>
+
+                        <button type="button" data-rating="2">
+                            ★
+                        </button>
+
+                        <button type="button" data-rating="3">
+                            ★
+                        </button>
+
+                        <button type="button" data-rating="4">
+                            ★
+                        </button>
+
+                        <button type="button" data-rating="5">
+                            ★
+                        </button>
+
+                    </div>
+
+                    <input
+                        type="hidden"
+                        id="reviewRating"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="reviewText">
+                        Your Review
+                    </label>
+
+                    <textarea
+                        id="reviewText"
+                        rows="5"
+                        placeholder="Tell us about your experience..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="submitReviewBtn"
+                    class="review-submit-btn"
+                >
+
+                    <i class="fas fa-paper-plane"></i>
+
+                    Submit Review
+
+                </button>
+
+
+                <p
+                    id="reviewMessage"
+                    class="review-message"
+                ></p>
+
+            </form>
 
         </div>
-<div class="review-card">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                "Excellent customer service. My computer
-                problem was handled professionally and
-                I received good technical support."
-            </p>
-
-            <h3>Promise G </h3>
-
-            <small>Johannesburg</small>
-
-        </div>
 
 
-        <div class="review-card">
+        <!-- ================= WHATSAPP REVIEW ================= -->
 
-            <div class="stars">
-                ★★★★★
-            </div>
-<p>
-                "Very professional and friendly service.
-                I would recommend Gregory Phone and Computer
-                Services to anyone looking for technical help."
-            </p>
+        <div class="review-button">
 
-            <h3>Ireen Lizzy G </h3>
+            <a
+                href="https://wa.me/27842133696?text=Hello%20Gregory%20Phone%20and%20Computer%20Services.%20I%20would%20like%20to%20leave%20a%20customer%20review"
+                class="btn whatsapp-btn"
+                target="_blank"
+            >
 
-            <small>Johannesburg</small>
+                <i class="fab fa-whatsapp"></i>
+
+                Leave a Review on WhatsApp
+
+            </a>
+
         </div>
 
     </div>
-<div class="review-button">
 
-        <a href="https://wa.me/27842133696?text=Hello%20Gregory%20Phone%20and%20Computer%20Services.%20I%20would%20like%20to%20leave%20a%20customer%20review."
-           class="btn whatsapp-btn"
-           target="_blank">
+</section>
 
-            <i class="fab fa-whatsapp"></i>
 
-            Leave a Review
-
-        </a>
-
-    </div>
-</div>
 
 </section> <!-- CONTACT --> <section id="contact" class="contact-section">
 <div class="container">
@@ -1767,8 +1871,7 @@ How Can We
     <p>
         © <span id="year"></span>
         GREGORY PHONE AND COMPUTER SERVICES.
-        All Rights Reserved.Website Content and design may not be reproduced without permission.
-
+        All Rights Reserved. Website content and design may not be reproduced without permission.
     </p>
 
     <p>
@@ -1793,4 +1896,7 @@ How Can We
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
  <script src="script.js"></script>
 
-</body> </html>
+<script src="reviews.js"></script>
+
+</body> 
+</html>

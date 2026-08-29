@@ -1,2 +1,214 @@
 
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Admin Dashboard | GREGORY PHONE AND COMPUTER SERVICES</title> <link rel="stylesheet" href="dashboard.css"> </head> <body> <header class="dashboard-header"> <div> <h1>GREGORY</h1> <p>PHONE &amp; COMPUTER SERVICES</p> </div> <button id="logoutBtn"> Logout </button> </header> <main class="dashboard-container"> <section class="dashboard-welcome"> <h2>Welcome to your Admin Dashboard</h2> <p> Create and manage posts for GREGORY PHONE AND COMPUTER SERVICES. </p> </section> <section class="post-form-section"> <h2>Create New Post</h2> <form id="postForm"> <label for="title"> Post Title </label> <input type="text" id="title" placeholder="Enter post title" required > <label for="content"> Post Content </label> <textarea id="content" rows="8" placeholder="Write your post here..." required ></textarea> <label for="image"> Post Image </label> <input type="file" id="image" accept="image/*" > <button type="submit" id="publishBtn" > Publish Post </button> <p id="postMessage"></p> </form> </section> <section class="posts-section"> <h2>Your Posts</h2> <div id="postsList"> <p>Loading posts...</p> </div> </section> <!-- ================= REPAIR TRACKING ================= --> <section class="posts-section repair-admin-section"> <h2> <i class="fas fa-screwdriver-wrench"></i> Repair Tracking </h2> <p class="repair-admin-intro"> Manage customer repair bookings and update their repair status. </p> <div id="repairsList"> <p> Loading repairs... </p> </div> </section> </main> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <script src="dashboard.js"></script> </body> </html>
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Admin Dashboard | GREGORY PHONE AND COMPUTER SERVICES</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head> <body> <header class="dashboard-header"> 
+    
+    <div>
+        
+        <h1>
+            GREGORY
+        </h1> 
+            
+            <p>PHONE &amp; COMPUTER SERVICES</p>
+        
+        </div> 
+        
+        <button id="logoutBtn"> Logout </button>
+    
+    </header> 
+    
+    <main class="dashboard-container"> 
+        
+        <section class="dashboard-welcome">
+            
+            <h2>Welcome to your Admin Dashboard</h2> 
+            
+            <p> 
+                Create and manage posts for GREGORY PHONE AND COMPUTER SERVICES.
+            
+            </p>
+        
+        </section>
+        
+        <section class="post-form-section">
+            
+            <h2>
+                Create New Post
+                
+            </h2> 
+            
+            <form id="postForm"> 
+                
+                <label for="title"> Post Title
+                    
+                </label> 
+                
+                <input type="text" id="title" placeholder="Enter post title" required >
+                
+                
+                <label for="content"> Post Content </label>
+                
+                <textarea id="content" rows="8" placeholder="Write your post here..." required >
+
+
+                </textarea> 
+                
+                <label for="image"> Post Image </label>
+                
+                <input type="file" id="image" accept="image/*" > 
+                
+                <button type="submit" id="publishBtn" > Publish Post 
+
+
+                </button> 
+                
+                <p 
+                id="postMessage">
+            
+            </p>
+        
+        </form>
+    
+    </section>
+    
+    <section class="posts-section"> 
+        
+        <h2>Your Posts</h2>
+        
+        <div id="postsList"> 
+            
+            <p>Loading posts...</p>
+        
+        </div> 
+    
+    
+    </section> 
+    
+    
+    <!-- ================= REPAIR TRACKING ================= -->
+     
+    
+    <section class="posts-section repair-admin-section"> 
+        
+        
+        <h2>
+            
+            <i class="fas fa-screwdriver-wrench">
+
+
+            </i> Repair Tracking </h2>
+            
+            
+            <p class="repair-admin-intro"> Manage customer repair bookings and update their repair status. </p>
+            
+            <div id="repairsList"> 
+                
+                <p> Loading repairs... </p> 
+            
+            </div> 
+        
+        </section> 
+    
+
+        <!-- ================= REVIEW MANAGEMENT ================= -->
+
+<section class="posts-section review-admin-section">
+
+    <h2>
+        <i class="fas fa-star"></i>
+        Customer Reviews
+    </h2>
+
+    <p class="repair-admin-intro">
+        Review customer feedback and approve reviews before they appear on your website.
+    </p>
+
+
+<!-- ================= REVIEW STATISTICS ================= -->
+ 
+
+<div class="review-statistics">
+    
+<div class="review-stat-card">
+
+    <i class="fas fa-star"></i>
+
+    <div>
+        <span id="adminAverageRating">0.0</span>
+        <small>Average Rating</small>
+    </div>
+
+</div>
+
+
+<div class="review-stat-card">
+
+    <i class="fas fa-comments"></i>
+
+    <div>
+        <span id="adminTotalReviews">0</span>
+        <small>Total Reviews</small>
+    </div>
+
+</div>
+
+
+<div class="review-stat-card">
+
+    <i class="fas fa-clock"></i>
+
+    <div>
+        <span id="adminPendingReviews">0</span>
+        <small>Pending</small>
+    </div>
+
+</div>
+
+
+<div class="review-stat-card">
+
+    <i class="fas fa-circle-check"></i>
+
+    <div>
+        <span id="adminApprovedReviews">0</span>
+        <small>Approved</small>
+    </div>
+
+</div>
+</div>
+
+
+
+    <div id="adminReviewsList">
+
+        <p>
+            Loading reviews...
+        </p>
+
+    </div>
+
+</section>
+
+    </main> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+
+
+    </script> 
+    
+    <script src="dashboard.js">
+
+
+    </script> 
+    
+</body> 
+
+</html>

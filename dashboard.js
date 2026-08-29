@@ -690,8 +690,375 @@ async function deletePost(id) {
     }
 }
 
+// ================= REVIEW MANAGEMENT =================
+
+async function loadAdminReviews() {
+
+    const reviewsList =
+        document.getElementById("adminReviewsList");
+
+    if (!reviewsList) {
+        return;
+    }
+
+    reviewsList.innerHTML =
+        "<p>Loading reviews...</p>";
 
 
-// Start dashboard
-loadPosts();
+    const { data, error } =
+        await supabaseClient
+            .from("reviews")
+            .select("*")
+            .order("created_at", {
+                ascending: false
+            });
+
+    if (error) {
+
+        console.error(
+            "Error loading reviews:",
+            error
+        );
+
+        reviewsList.innerHTML =
+            "<p>Error loading reviews: " +
+            error.message +
+            "</p>";
+
+        return;
+    }
+
+    if (!data || data.length === 0) {
+
+        reviewsList.innerHTML =
+            "<p>No customer reviews yet.</p>";
+
+        return;
+    }
+
+    reviewsList.innerHTML = "";
+    updateReviewStatistics(data);
+    data.forEach(function(review) {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "admin-review-card";
+
+
+        const stars =
+            document.createElement("div");
+
+        stars.className =
+            "stars";
+
+        stars.textContent =
+            "★".repeat(review.rating) +
+            "☆".repeat(5 - review.rating);
+
+
+        const name =
+            document.createElement("h3");
+
+        name.textContent =
+            review.customer_name;
+
+
+        const text =
+            document.createElement("p");
+
+        text.textContent =
+            review.review_text;
+
+
+        const date =
+            document.createElement("small");
+
+        date.textContent =
+            new Date(
+                review.created_at
+            ).toLocaleDateString(
+                "en-ZA",
+                {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+
+        const status =
+            document.createElement("span");
+
+        status.className =
+            review.approved
+                ? "review-approved"
+                : "review-pending";
+
+        status.textContent =
+            review.approved
+                ? "Approved"
+                : "Pending Approval";
+
+
+        card.appendChild(stars);
+
+        card.appendChild(name);
+
+        card.appendChild(text);
+
+        card.appendChild(date);
+
+        card.appendChild(status);
+
+
+        // ================= APPROVE BUTTON =================
+
+        if (!review.approved) {
+
+            const approveButton =
+                document.createElement("button");
+
+            approveButton.className =
+                "approve-review-btn";
+
+            approveButton.innerHTML =
+                '<i class="fas fa-check"></i> Approve';
+
+
+            approveButton.addEventListener(
+                "click",
+                function() {
+
+                    approveReview(
+                        review.id
+                    );
+
+                }
+            );
+
+
+            card.appendChild(
+                approveButton
+            );
+
+        }
+
+
+        // ================= DELETE BUTTON =================
+
+        const deleteButton =
+            document.createElement("button");
+
+        deleteButton.className =
+            "delete-review-btn";
+
+        deleteButton.innerHTML =
+            '<i class="fas fa-trash"></i> Delete';
+
+
+        deleteButton.addEventListener(
+            "click",
+            function() {
+
+                deleteReview(
+                    review.id
+                );
+
+            }
+        );
+
+
+        card.appendChild(
+            deleteButton
+        );
+
+
+        reviewsList.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+// ================= APPROVE REVIEW =================
+
+async function approveReview(id) {
+
+    const { error } =
+        await supabaseClient
+            .from("reviews")
+            .update({
+                approved: true
+            })
+            .eq("id", id);
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Could not approve review: " +
+            error.message
+        );
+
+        return;
+    }
+
+    alert(
+        "Review approved successfully! ⭐"
+    );
+
+    loadAdminReviews();
+}
+
+
+// ================= DELETE REVIEW =================
+
+async function deleteReview(id) {
+
+    const confirmDelete =
+        confirm(
+            "Are you sure you want to delete this review?"
+        );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    const { error } =
+        await supabaseClient
+            .from("reviews")
+            .delete()
+            .eq("id", id);
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Could not delete review: " +
+            error.message
+        );
+
+        return;
+    }
+
+    alert(
+        "Review deleted successfully! ✅"
+    );
+
+    loadAdminReviews();
+}
+
+
+// ================= REVIEW STATISTICS =================
+
+function updateReviewStatistics(reviews) {
+
+const totalReviews =
+    reviews.length;
+
+const pendingReviews =
+    reviews.filter(function(review) {
+        return !review.approved;
+    }).length;
+
+const approvedReviews =
+    reviews.filter(function(review) {
+        return review.approved;
+    }).length;
+
+const totalRating =
+    reviews.reduce(function(total, review) {
+        return total + Number(review.rating || 0);
+    }, 0);
+
+const averageRating =
+    totalReviews > 0
+        ? totalRating / totalReviews
+        : 0;
+
+
+const averageElement =
+    document.getElementById(
+        "adminAverageRating"
+    );
+
+const totalElement =
+    document.getElementById(
+        "adminTotalReviews"
+    );
+
+const pendingElement =
+    document.getElementById(
+        "adminPendingReviews"
+    );
+
+const approvedElement =
+    document.getElementById(
+        "adminApprovedReviews"
+    );
+
+
+if (averageElement) {
+
+    averageElement.textContent =
+        averageRating.toFixed(1);
+
+}
+
+
+if (totalElement) {
+
+    totalElement.textContent =
+        totalReviews;
+
+}
+
+
+if (pendingElement) {
+
+    pendingElement.textContent =
+        pendingReviews;
+
+}
+
+
+if (approvedElement) {
+
+    approvedElement.textContent =
+        approvedReviews;
+
+}
+}
+
+// ================= LOAD REVIEW STATISTICS =================
+
+setTimeout(async function() {
+
+const { data, error } = await supabaseClient
+
+.from("reviews")
+
+.select("rating, approved");
+
+if (error) {
+
+console.error("Statistics error:", error);
+
+return;
+
+}
+
+updateReviewStatistics(data || []);
+
+}, 500);
+
+
+checkLogin();
 loadRepairs();
+loadAdminReviews();
