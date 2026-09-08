@@ -2257,4 +2257,20 @@ z-index: 9997 !important;
     bottom: 18px !important;
 }
 
+    .download-app-button {
+  display: inline-block;
+  background: #208AEF;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.download-app-button:hover {
+  opacity: 0.9;
+}
+
 }
