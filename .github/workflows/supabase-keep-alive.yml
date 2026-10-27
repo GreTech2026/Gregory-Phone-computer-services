@@ -2,39 +2,44 @@ name: GPCS Supabase Activity Check
 
 on:
 schedule:
-- cron: "0 6 * * *"
+- cron: "17 6 * * *"
 workflow_dispatch:
 
 jobs:
 check-database:
 runs-on: ubuntu-latest
 
-Steps:
+steps:
   - name: Check Supabase database
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    shell: bash
     run: |
-      set -e
+      set -euo pipefail
 
-      if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
-        echo "Missing Supabase repository secrets."
+      if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_ANON_KEY" ]]; then
+        echo "ERROR: A required GitHub secret is missing."
         exit 1
       fi
 
-      RESPONSE=$(curl --silent --show-error \
-        --output /tmp/supabase-response.txt \
+      RESPONSE_FILE="$(mktemp)"
+
+      HTTP_STATUS=$(curl --silent --show-error \
+        --output "$RESPONSE_FILE" \
         --write-out "%{http_code}" \
         "$SUPABASE_URL/rest/v1/posts?select=id&limit=1" \
         -H "apikey: $SUPABASE_ANON_KEY" \
         -H "Authorization: Bearer $SUPABASE_ANON_KEY")
 
-      echo "Supabase HTTP status: $RESPONSE"
+      echo "Supabase HTTP status: $HTTP_STATUS"
 
-      if [ "$RESPONSE" -lt 200 ] || [ "$RESPONSE" -ge 300 ]; then
-        echo "Database request failed."
-        cat /tmp/supabase-response.txt
+      if [[ "$HTTP_STATUS" != "200" ]]; then
+        echo "ERROR: The Supabase database request failed."
+        cat "$RESPONSE_FILE"
+        rm -f "$RESPONSE_FILE"
         exit 1
       fi
 
       echo "Supabase database request succeeded."
+      rm -f "$RESPONSE_FILE"
