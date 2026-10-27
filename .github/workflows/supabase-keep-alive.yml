@@ -1,0 +1,40 @@
+name: GPCS Supabase Activity Check
+
+on:
+schedule:
+- cron: "0 6 * * *"
+workflow_dispatch:
+
+jobs:
+check-database:
+runs-on: ubuntu-latest
+
+Steps:
+  - name: Check Supabase database
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    run: |
+      set -e
+
+      if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+        echo "Missing Supabase repository secrets."
+        exit 1
+      fi
+
+      RESPONSE=$(curl --silent --show-error \
+        --output /tmp/supabase-response.txt \
+        --write-out "%{http_code}" \
+        "$SUPABASE_URL/rest/v1/posts?select=id&limit=1" \
+        -H "apikey: $SUPABASE_ANON_KEY" \
+        -H "Authorization: Bearer $SUPABASE_ANON_KEY")
+
+      echo "Supabase HTTP status: $RESPONSE"
+
+      if [ "$RESPONSE" -lt 200 ] || [ "$RESPONSE" -ge 300 ]; then
+        echo "Database request failed."
+        cat /tmp/supabase-response.txt
+        exit 1
+      fi
+
+      echo "Supabase database request succeeded."
