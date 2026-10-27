@@ -1,45 +1,44 @@
 name: GPCS Supabase Activity Check
 
 on:
-schedule:
-- cron: "17 6 * * *"
-workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
 
 jobs:
-check-database:
-runs-on: ubuntu-latest
+  check-database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Supabase database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
 
-steps:
-  - name: Check Supabase database
-    env:
-      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-    shell: bash
-    run: |
-      set -euo pipefail
+          if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_ANON_KEY" ]]; then
+            echo "ERROR: A required 【entity-GitHub¦canonical_name=GitHub】 secret is missing."
+            exit 1
+          fi
 
-      if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_ANON_KEY" ]]; then
-        echo "ERROR: A required GitHub secret is missing."
-        exit 1
-      fi
+          RESPONSE_FILE="$(mktemp)"
 
-      RESPONSE_FILE="$(mktemp)"
+          HTTP_STATUS=$(curl --silent --show-error \
+            --output "$RESPONSE_FILE" \
+            --write-out "%{http_code}" \
+            "$SUPABASE_URL/rest/v1/posts?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY")
 
-      HTTP_STATUS=$(curl --silent --show-error \
-        --output "$RESPONSE_FILE" \
-        --write-out "%{http_code}" \
-        "$SUPABASE_URL/rest/v1/posts?select=id&limit=1" \
-        -H "apikey: $SUPABASE_ANON_KEY" \
-        -H "Authorization: Bearer $SUPABASE_ANON_KEY")
+          echo "Supabase HTTP status: $HTTP_STATUS"
 
-      echo "Supabase HTTP status: $HTTP_STATUS"
+          if [[ "$HTTP_STATUS" != "200" ]]; then
+            echo "ERROR: The Supabase database request failed."
+            cat "$RESPONSE_FILE"
+            rm -f "$RESPONSE_FILE"
+            exit 1
+          fi
 
-      if [[ "$HTTP_STATUS" != "200" ]]; then
-        echo "ERROR: The Supabase database request failed."
-        cat "$RESPONSE_FILE"
-        rm -f "$RESPONSE_FILE"
-        exit 1
-      fi
-
-      echo "Supabase database request succeeded."
-      rm -f "$RESPONSE_FILE"
+          echo "Supabase database request succeeded."
+          rm -f "$RESPONSE_FILE"
